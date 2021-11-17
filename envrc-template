@@ -1,0 +1,10 @@
+export AZ_RG=TODO #Resource group for Azure - will get created if non-existant
+export AZ_REGION=westeurope
+
+export AZ_CLUSTER_RG=TODO #Resource group for the AKS cluster - should be the same as RG above
+export AZ_CLUSTER_NAME=TODO^
+export AZ_CLUSTER_INGRESS_NAMESPACE=ingress
+export AZ_CLUSTER_REDIS_NAMESPACE=redis
+
+export SSH_PUB_KEY=~/.ssh/azure_id_rsa.pub
+export SSH_KEY=~/.ssh/azure_id_rsa
