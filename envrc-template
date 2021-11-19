@@ -6,5 +6,5 @@ export AZ_CLUSTER_NAME=TODO^
 export AZ_CLUSTER_INGRESS_NAMESPACE=ingress
 export AZ_CLUSTER_REDIS_NAMESPACE=redis
 
-export SSH_PUB_KEY=~/.ssh/azure_id_rsa.pub
-export SSH_KEY=~/.ssh/azure_id_rsa
+export SSH_KEY=azure_id_rsa
+export ADMIN_USERNAME=root

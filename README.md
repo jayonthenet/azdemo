@@ -31,6 +31,7 @@ You'll need to brew the following onto your system for everything to work.
 
 ```zsh
 gh clone jayonthenet/azdemo
+cd azdemo
 cp envrc-template .envrc
 direnv allow
 vi .envrc                             ### You get the idea ;)
