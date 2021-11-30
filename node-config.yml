@@ -1,0 +1,27 @@
+#cloud-config
+bootcmd:
+  - curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ bionic main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+package_upgrade: true
+# Only add to packages list if you really want to use azure-cli on the machine - it will take about 5 minutes to install it
+#- azure-cli
+packages:
+  - apt-transport-https
+  - jq
+  - unzip
+  - neovim
+  - direnv
+  - tinyproxy
+  - wget
+runcmd:
+  - swapoff -a
+  - sed -i.bak '/ swap / s/^(.*)$/#1/g' /etc/fstab
+  - echo "DNSStubListener=no" | tee -a /etc/systemd/resolved.conf
+  - mv /etc/resolv.conf /etc/resolv.conf.orig
+  - ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+  - service systemd-resolved restart
+  - wget @@REDIS_RELEASE@@
+  - tar xvf @@REDIS_FILENAME@@
+  - ./install.sh -y
+  - usermod -a -G redislabs @@USER_NAME@@
+final_message: "The system is done and you're on... took us $UPTIME seconds"
