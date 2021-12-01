@@ -9,11 +9,8 @@ export AZ_CLUSTER_REDIS_NAMESPACE=redis
 export CLUSTER_FQDN=TODO.fully.qualified.domain.name
 
 export AZ_VMS_NODECOUNT=3
-export AZ_VMS_VNET=jaytest
+export AZ_VMS_VNET=TODO
 export AZ_VMS_SIZE=Standard_D4s_v4
-
-# This is GCP
-#export ADMIN_USERNAME=clemens_juette_redis_com
 
 export SSH_KEY=azure_id_rsa
 export ADMIN_USERNAME=ubuntu
