@@ -23,7 +23,7 @@ fi
 
 echo "*** Creating YAML for cloud-init"
 cp node-config.yml cloud-init.txt
-gsed -i 's/@@USER_NAME@@/'${USERNAME_FOR_LOGIN}'/g' cloud-init.txt
+gsed -i 's/@@USER_NAME@@/'${ADMIN_USERNAME}'/g' cloud-init.txt
 gsed -i 's|@@REDIS_RELEASE@@|'${REDIS_DOWNLOAD_URL}'|g' cloud-init.txt
 gsed -i 's/@@REDIS_FILENAME@@/'${REDIS_FILENAME}'/g' cloud-init.txt
 

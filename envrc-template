@@ -2,9 +2,23 @@ export AZ_RG=TODO #Resource group for Azure - will get created if non-existant
 export AZ_REGION=westeurope
 
 export AZ_CLUSTER_RG=TODO #Resource group for the AKS cluster - should be the same as RG above
-export AZ_CLUSTER_NAME=TODO^
+export AZ_CLUSTER_NAME=TODO
 export AZ_CLUSTER_INGRESS_NAMESPACE=ingress
 export AZ_CLUSTER_REDIS_NAMESPACE=redis
 
+export CLUSTER_FQDN=TODO.fully.qualified.domain.name
+
+export AZ_VMS_NODECOUNT=3
+export AZ_VMS_VNET=jaytest
+export AZ_VMS_SIZE=Standard_D4s_v4
+
+# This is GCP
+#export ADMIN_USERNAME=clemens_juette_redis_com
+
 export SSH_KEY=azure_id_rsa
-export ADMIN_USERNAME=root
+export ADMIN_USERNAME=ubuntu
+export ADMIN_EMAIL=TODO@domain.com
+export ADMIN_PASSWORD=TODO
+
+export REDIS_DOWNLOAD_URL=TODO
+export REDIS_FILENAME=TODO
