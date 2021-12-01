@@ -55,7 +55,7 @@ do
         nameornodes="nodes 10.0.0.4"
     fi
 
-    COMMAND="rladmin cluster ${createorjoin} addr ${PRIVATE_IP} external_addr ${PUBLIC_IP} ${nameornodes} username ${ADMIN_USERNAME}@redis.com password ${ADMIN_PASSWORD}"
+    COMMAND="rladmin cluster ${createorjoin} addr ${PRIVATE_IP} external_addr ${PUBLIC_IP} ${nameornodes} username ${ADMIN_EMAIL} password ${ADMIN_PASSWORD}"
     
     echo " ** Contacting VM ${i} at ${PUBLIC_IP}"
     ssh -i ~/.ssh/${SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@${AZ_CLUSTER_NAME}redis${i}.westeurope.cloudapp.azure.com "bash --login -c 'cloud-init status --wait'"
