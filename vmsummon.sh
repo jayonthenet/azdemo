@@ -65,8 +65,8 @@ do
     echo "  * Name or nodes: ${nameornodes}"
     ssh -i ~/.ssh/${SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@${AZ_CLUSTER_NAME}redis${i}.westeurope.cloudapp.azure.com "bash --login -c '${COMMAND}'"
 
-    echo " ** Node is in cluster - security up - opening port 8443 on NIC/NSG"
-    az vm open-port -g ${AZ_CLUSTER_RG} -n ${AZ_CLUSTER_NAME}${i} --port 8443 -o none --only-show-errors
+    echo " ** Node is in cluster - security up - opening ports for Redis on NIC/NSG"
+    az vm open-port -g ${AZ_CLUSTER_RG} -n ${AZ_CLUSTER_NAME}${i} --priority 800 --port 53,5353,8001,8070,8071,8080,8443,9443,10000-19999 -o none --only-show-errors
 done
 
 ### DONE
