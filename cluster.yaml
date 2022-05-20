@@ -1,7 +1,13 @@
-apiVersion: app.redislabs.com/v1alpha1
-kind: RedisEnterpriseCluster
+apiVersion: "app.redislabs.com/v1"
+kind: "RedisEnterpriseCluster"
 metadata:
-  name: "redis-enterprise"
+  name: "demo-rec"
 spec:
-  # Add fields here
   nodes: 3
+  redisEnterpriseNodeResources:
+      limits:
+        cpu: 1000m
+        memory: 2Gi
+      requests:
+        cpu: 1000m
+        memory: 2Gi
