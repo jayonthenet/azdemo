@@ -1,0 +1,25 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: redb-admission
+webhooks:
+- name: redb.admission.redislabs
+  namespaceSelector:
+      matchLabels:
+        namespace-name: @@NAMESPACE_OF_SERVICE_ACCOUNT@@
+  failurePolicy: Fail
+  matchPolicy: Exact
+  sideEffects: None
+  timeoutSeconds: 30
+  rules:
+  - apiGroups:   ["app.redislabs.com"]
+    apiVersions: ["v1alpha1"]
+    operations:  ["*"]
+    resources:   ["redisenterprisedatabases"]
+  clientConfig:
+    service:
+      namespace: @@NAMESPACE_OF_SERVICE_ACCOUNT@@
+      name: admission
+      path: /admission
+    caBundle: "@@CERT@@" # Fill in with BASE64 encoded signed cert
+  admissionReviewVersions: ["v1beta1"]
