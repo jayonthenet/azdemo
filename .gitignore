@@ -67,3 +67,4 @@ Temporary Items
 # End of https://www.toptal.com/developers/gitignore/api/direnv,visualstudiocode,macos
 
 cloud-init.txt
+webhook-mod.yaml
